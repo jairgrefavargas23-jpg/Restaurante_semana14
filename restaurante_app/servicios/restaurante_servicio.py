@@ -1,10 +1,14 @@
+import os
 from modelos.producto import Producto
 from modelos.usuario import Usuario
 from servicios.archivo_servicio import ArchivoServicio
 
+
 class RestauranteServicio:
-    RUTA_PRODUCTOS = "datos/productos.json"
-    RUTA_USUARIOS = "datos/usuarios.json"
+    # Carpeta base = "restaurante_app" (2 niveles arriba de este archivo: servicios/ -> restaurante_app/)
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    RUTA_PRODUCTOS = os.path.join(BASE_DIR, "datos", "productos.json")
+    RUTA_USUARIOS = os.path.join(BASE_DIR, "datos", "usuarios.json")
 
     def __init__(self):
         self.productos = []
